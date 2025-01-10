@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Land - نظام اللعبة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(to bottom, #2c3e50, #bdc3c7);
+            color: #ecf0f1;
+            direction: rtl;
+            position: relative;
+        }
+
+        header {
+            background-color: #1abc9c;
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            border-bottom: 5px solid #16a085;
+        }
+
+        header img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            background-color: rgba(44, 62, 80, 0.9);
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .intro h2 {
+            font-size: 2.2em;
+            color: #1abc9c;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .links a {
+            background-color: #16a085;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.2em;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 1em;
+        }
+
+        .developer-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .developer-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .developer-info p {
+            font-size: 1.2em;
+            color: #ecf0f1;
+            margin-top: 10px;
+        }
+
+        .discord-link {
+    position: absolute;
+    top: 20px; /* من الأعلى */
+    right: 1100px; /* من اليمين */
+    background-color: #7289da;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+
+        .discord-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://media.discordapp.net/attachments/1310365973215182878/1320182394602524732/dreamland.gif?ex=67810eea&is=677fbd6a&hm=4603611069fc01716dd69311316bab5b2382f2e89f23c32d38e9ad2f44ae19e6&=&width=655&height=655" alt="Dream Land Logo">
+    <div>Dream Land - نظام اللعبة</div>
+</header>
+
+<!-- Developer Info Section (Positioned top-right) -->
+<div class="developer-info">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/446b1af0-e6ba-4b0f-a9de-6ae6d3ed27a3/dfjnis9-bc81a948-bddd-4fc1-bfa2-67a8d03bafb2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ0NmIxYWYwLWU2YmEtNGIwZi1hOWRlLTZhZTZkM2VkMjdhM1wvZGZqbmlzOS1iYzgxYTk0OC1iZGRkLTRmYzEtYmZhMi02N2E4ZDAzYmFmYjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yes3IBE12Z1L0a7CgJjOdkaEWoP_g5BAeJCvsj2pdzQ" alt="Developer Photo">
+    <p>مطور الموقع: Younes</p>
+    <a href="https://discord.gg/8wKTXWva" class="discord-link" target="_blank">انضم إلى ديسكورد</a>
+
+</div>
+
+<div class="intro">
+    <h2>مرحباً بك في نظام اللعبة</h2>
+    <p>
+        نظام Dream Land يوفر كل ما تحتاجه من معلومات حول قوانين الطوارئ، نظام المكافآت، والأنظمة الخاصة بالرولبلاي والشرطة. اختر الفئة المناسبة للحصول على التفاصيل.
+    </p>
+
+    <div class="links">
+        <a href="ems_rules.html">قوانينEMS</a>
+        <a href="money_system.html">نظام المكافآت</a>
+        <a href="police_rules.html">دليل الشرطة</a>
+        <a href="roleplay_rules.html">قوانين الرولبلاي</a>
+    </div>
+
+    <a href="index.html" class="submit-btn" style="margin-top: 20px;">تسجيل الخروج</a>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; Dream Land 2025</p>
+</footer>
+
+<script>
+    if (!localStorage.getItem('username')) {
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Land - تسجيل الدخول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(to bottom, #2c3e50, #bdc3c7);
+            color: #ecf0f1;
+            direction: rtl;
+            position: relative;
+        }
+
+        header {
+            background-color: #1abc9c;
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            border-bottom: 5px solid #16a085;
+        }
+
+        .form-container {
+            background-color: rgba(44, 62, 80, 0.9);
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container h2 {
+            font-size: 2.2em;
+            color: #1abc9c;
+            margin-bottom: 15px;
+        }
+
+        .form-container p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #16a085;
+            font-size: 1.1em;
+            text-align: right;
+        }
+
+        .submit-btn {
+            background-color: #16a085;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.2em;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 1em;
+        }
+
+        .developer-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .developer-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .developer-info p {
+            font-size: 1.2em;
+            color: #ecf0f1;
+            margin-top: 10px;
+        }
+
+        .discord-link {
+    position: absolute;
+    top: 20px; /* من الأعلى */
+    right: 1100px; /* من اليمين */
+    background-color: #7289da;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+
+        .discord-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>Dream Land - تسجيل الدخول</div>
+</header>
+
+<!-- Developer Info Section (Positioned top-right) -->
+<div class="developer-info">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/446b1af0-e6ba-4b0f-a9de-6ae6d3ed27a3/dfjnis9-bc81a948-bddd-4fc1-bfa2-67a8d03bafb2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ0NmIxYWYwLWU2YmEtNGIwZi1hOWRlLTZhZTZkM2VkMjdhM1wvZGZqbmlzOS1iYzgxYTk0OC1iZGRkLTRmYzEtYmZhMi02N2E4ZDAzYmFmYjIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yes3IBE12Z1L0a7CgJjOdkaEWoP_g5BAeJCvsj2pdzQ" alt="Developer Photo">
+    <p>مطور الموقع: Younes</p>
+    <a href="https://discord.gg/8wKTXWva" class="discord-link" target="_blank">انضم إلى ديسكورد</a>
+
+</div>
+
+<div class="form-container">
+    <h2>مرحبا بك في Dream Land</h2>
+    <p>يرجى ادخال اسمك للتسجيل في الموقع</p>
+    <input type="text" id="username" class="input-field" placeholder="أدخل اسمك" />
+    <br>
+    <a href="#" class="submit-btn" onclick="register()">تسجيل الدخول</a>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; Dream Land 2025</p>
+</footer>
+
+<script>
+    function register() {
+        const username = document.getElementById('username').value;
+
+        if (username.trim() === "") {
+            alert("يرجى إدخال اسم المستخدم.");
+            return;
+        }
+
+        if (localStorage.getItem('username') === username) {
+            alert("أنت مسجل بالفعل في النظام.");
+            window.location.href = "home.html";
+            return;
+        }
+
+        localStorage.setItem('username', username);
+        alert("تم تسجيل الدخول بنجاح!");
+        window.location.href = "home.html";
+    }
+</script>
+
+</body>
+</html>
