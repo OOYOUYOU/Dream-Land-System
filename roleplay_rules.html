@@ -14,9 +14,10 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #2c3e50;
+            background: linear-gradient(to bottom, #2c3e50, #34495e);
             color: #ecf0f1;
             direction: rtl;
+            overflow-x: hidden;
         }
 
         header {
@@ -26,44 +27,62 @@
             color: #fff;
             font-size: 2.5em;
             font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #16a085;
         }
 
         .container {
             display: grid;
             grid-template-columns: 250px 1fr;
             min-height: 100vh;
+            gap: 20px;
         }
 
         .sidebar {
             background-color: #34495e;
             padding-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         .sidebar a {
-            display: block;
+            display: flex;
+            align-items: center;
             color: #ecf0f1;
             padding: 15px 20px;
             text-decoration: none;
             font-size: 1.1em;
             border-bottom: 1px solid #2c3e50;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .sidebar a img {
+            width: 24px;
+            margin-left: 10px;
         }
 
         .sidebar a:hover {
             background-color: #16a085;
             color: #fff;
+            transform: scale(1.05);
         }
 
         .content {
             padding: 30px;
             background-color: #ecf0f1;
             color: #2c3e50;
+            overflow-y: auto;
+            max-height: 100vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             text-align: center;
             color: #16a085;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .section {
@@ -71,103 +90,198 @@
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .section h3 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin-bottom: 10px;
             color: #2c3e50;
+            border-bottom: 2px solid #16a085;
+            padding-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h3 img {
+            width: 28px;
+            margin-left: 10px;
         }
 
         .section p {
             font-size: 1.2em;
             line-height: 1.8;
+            white-space: pre-wrap;
+            text-align: justify;
+            display: none;
         }
 
-        .rp-image {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .rp-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #16a085;
+            border-radius: 2px;
         }
 
         footer {
             background: #34495e;
             color: #ecf0f1;
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px;
+            border-top: 4px solid #16a085;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .section.active p {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".section h3");
+            sections.forEach(section => {
+                section.addEventListener("click", function() {
+                    this.parentElement.classList.toggle("active");
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
 <header>
-    قوانين RP - Dream Land
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/theater-mask.png" alt="RP Logo">
+    <div>قوانين RP - Dream Land</div>
 </header>
 
 <div class="container">
     <div class="sidebar">
-        <a href="home.html">الصفحة الرئيسية</a>
-        <a href="ems_rules.html">قوانين EMS</a>
-        <a href="money_system.html">نظام المال والدرجات</a>
-        <a href="police_rules.html">قوانين الشرطة</a>
-        <a href="rp_rules.html">قوانين RP</a>
+        <a href="home.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home">الصفحة الرئيسية</a>
+        <a href="ems_rules.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/ambulance.png" alt="EMS">قوانين EMS</a>
+        <a href="police_rules.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/police-badge.png" alt="Police">قوانين الشرطة</a>
+        <a href="rp_rules.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/theater-mask.png" alt="Roleplay">قوانين RP</a>
     </div>
 
     <div class="content">
-        <h2>قوانين RP</h2>
-
-        <div class="rp-image">
-            <img src="https://i.ytimg.com/vi/TMNR64X048E/maxresdefault.jpg" alt="Roleplay Scene">
+        <h2>مفاهيم الرول بلاي</h2>
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/theater-mask.png" alt="Roleplay">ROLEPLAY</h3>
+            <p>هي شكل من الألعاب يتقمّص فيها اللاعبون شخصيات في إطار خيالي. يتحكّم اللاعب في تصرّفات الشخصية سواء من خلال سرد أفعالها، أو من خلال أفعال حقيقية، أو عبر نظام لاتخاذ القرارات وتطوير الشخصية. لتأطير اللاعبين تحتوي اللعبة على قواعد تحدّد الإطار العام للشخصيات والأفعال المتاحة ومتى تنجح هذه الأفعال أو تفشل والتفاعلات الممكنة بينها. من المستحسن أن يستعمل اللاعب اسم حقيقي لشخصيته داخل اللعبة.</p>
         </div>
 
         <div class="section">
-            <h3>الالتزام بالشخصية</h3>
-            <p>
-                يجب على اللاعبين الالتزام بشخصياتهم في جميع الأوقات. يُمنع كسر الشخصية (Breaking Character) إلا في حالات الطوارئ المبررة.
-            </p>
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/power-off-button.png" alt="Power Gaming">POWER GAMING</h3>
+            <p>هو القيام بأفعال خارقة للعادة من طرف شخصيتك داخل اللعبة والتي لا يمكنك فعلها في الحياة الواقعية كالقفز من أعلى الجسر، ثم القيام والمشي بدون أي مشكلة أو أن تصدمك سيارة وتكمل طريقك دون أي أضرار أو دون القيام بأي سيناريو.</p>
         </div>
 
         <div class="section">
-            <h3>الواقعية</h3>
-            <p>
-                يجب الحفاظ على الواقعية في جميع السيناريوهات. يُمنع القيام بأفعال غير منطقية أو استغلال اللعبة بطرق غير مشروعة.
-            </p>
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/rabbit.png" alt="Bunny Jumping">BUNNY JUMPING</h3>
+            <p>القفز بشكل متكرر للتقدم بشكل أسرع.</p>
         </div>
 
         <div class="section">
-            <h3>احترام اللاعبين</h3>
-            <p>
-                يُمنع استخدام ألفاظ مسيئة أو التصرف بطرق عدائية تجاه الآخرين. يجب احترام جميع اللاعبين داخل وخارج السيناريوهات.
-            </p>
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/scales.png" alt="Fair Play">FAIR PLAY</h3>
+            <p>الإنصاف والتحلي بالروح الرياضية كعدم استغلال الأكثرية العددية.</p>
         </div>
 
         <div class="section">
-            <h3>التفاعل مع السيناريوهات</h3>
-            <p>
-                يجب على اللاعبين التفاعل مع السيناريوهات بشكل منطقي ومناسب. يُمنع تجاهل السيناريوهات أو التهرب منها.
-            </p>
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/angry-face.png" alt="Trolling">TROLLING</h3>
+            <p>الترصد للشرطة وعدم احترامهم أو القيام بأعمال أو أفعال تنقص من قيمتهم.</p>
         </div>
 
         <div class="section">
-            <h3>الإبلاغ عن المخالفات</h3>
-            <p>
-                إذا لاحظ اللاعب أي مخالفة للقوانين، يجب الإبلاغ عنها عبر القنوات المناسبة بدلاً من التصرف بشكل فردي.
-            </p>
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/exit.png" alt="Fuir Le RP">FUIR LE RP (ALT F4)</h3>
+            <p>الخروج من السيرفر عمداً للهروب من السيناريو، مثلاً في حالة إلقاء القبض عليك. في حال كان ذلك بسبب انفصال الإنترنت، يجب عليك العودة إلى السيرفر وإكمال السيناريو وإلا ستتلقى عقوبات.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/speech-bubble.png" alt="HRP">HRP</h3>
+            <p>التكلم خارج الرول بلاي أثناء السيناريو أو استعمال مصطلحات خارجة عن الرول بلاي تعرض صاحبها لأقصى العقوبات.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/refresh.png" alt="NLR">NLR: New Life Rules</h3>
+            <p>في حالة دخولك مرحلة الغيبوبة، عليك نسيان 10 إلى 15 دقيقة مما حدث قبل ذلك.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/skull.png" alt="Revenge Kill">REVENGE KILL</h3>
+            <p>الانتقام من شخص ما قام بقتلك من قبل.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/glasses.png" alt="Meta Gaming">META GAMING</h3>
+            <p>استعمال معلومات من خارج اللعبة واستعمالها داخل اللعبة.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/target.png" alt="Free Kill">FREE KILL</h3>
+            <p>هو القتل العمدي للاعب آخر بدون سيناريو أو سبب مقنع.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/comedy-mask.png" alt="Mix RP">MIX RP</h3>
+            <p>هو الخلط بين الحقيقة واللعبة.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/pain.png" alt="Pain RP">PAIN RP</h3>
+            <p>التظاهر بالألم عند التعرض للضرب أو لحادث ما.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/hammer.png" alt="Force RP">FORCE RP</h3>
+            <p>إجبار شخص على قبول شروطك الخاصة دون التطرق أو السماع لشروطه.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/shield.png" alt="Fear RP">FEAR RP</h3>
+            <p>هي الحفاظ على حياتك وحياة الآخرين، وعدم التهور، وأن لا تستهين بقتل الأشخاص، وأن لا تقاوم المجرم أو المجرمين إذا كانوا مسلحين وأنت أعزل.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/car.png" alt="Car Kill">CAR KILL</h3>
+            <p>هو قتل الناس بالسيارة بدون سبب أو مع سبب، فهو ممنوع.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/crowd.png" alt="Mass RP">MASS RP</h3>
+            <p>يجب أن تأخذ بعين الاعتبار أن هناك سكاناً في الأحياء السكنية، مركز الشرطة، المستشفى، والشركات العامة.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/16a085/driver.png" alt="Drive Attack">DRIVE ATTACK</h3>
+            <p>إطلاق النار من طرف سائق المركبة.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="C:\Users\youyo\Music\Ems Rules\cross_13291141.png" alt="Mort RP">MORT RP</h3>
+            <p>الموت النهائي لشخصيتك ويجب عليك إنشاء شخصية جديدة مع نسيان كل شيء تتذكره في شخصيتك القديمة مثل أصدقائك والأماكن.</p>
         </div>
     </div>
 </div>
 
 <footer>
-    © 2025 Dream Land - جميع الحقوق محفوظة
+    <p>© 2025 Dream Land - جميع الحقوق محفوظة</p>
 </footer>
 
 </body>
