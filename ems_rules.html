@@ -3,158 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قوانين EMS - Dream Land</title>
+    <title>قوانين EMS ونظام المال والدرجات - Dream Land</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
-            padding: -5;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Amiri', serif;
-            background-color: #f8f9fa;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom, #f0f4f7, #d9e2ec);
             color: #2c3e50;
             direction: rtl;
         }
 
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #1abc9c;
-            padding: 10px 20px;
-            color: white;
-            font-size: 2em;
-            font-weight: bold;
-            border-bottom: 5px solid #16a085;
-        }
-
-        header div {
-            flex: 1;
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            padding: 1px;
             text-align: center;
+            color: #fff;
+            font-size: 2.8em;
+            font-weight: bold;
+            border-bottom: 4px solid #16a085;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         header img {
-            height: 60px;
-            width: auto;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+            gap: 20px;
         }
 
         .sidebar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 220px;
-            height: 100%;
             background-color: #34495e;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
             padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar a {
+            display: flex;
+            align-items: center;
             color: #ecf0f1;
+            padding: 15px 20px;
             text-decoration: none;
-            padding: 10px 15px;
-            font-size: 1.1em;
-            background-color: #2c3e50;
-            border-radius: 8px;
-            margin: 0 10px;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.2em;
+            border-bottom: 1px solid #2c3e50;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
         .sidebar a:hover {
-            background-color: #1abc9c;
+            background-color: #16a085;
             transform: scale(1.05);
+            color: #fff;
+        }
+
+        .sidebar a img {
+            width: 24px;
+            margin-left: 10px;
         }
 
         .content {
-            margin-right: 250px;
-            padding: 20px;
+            padding: 30px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            text-align: center;
+            color: #e74c3c;
+            margin-bottom: 20px;
         }
 
         .section {
-            background-color: #ecf0f1;
-            border-radius: 10px;
+            margin-bottom: 30px;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .section h3 {
-            font-size: 1.5em;
-            color: #1abc9c;
-            margin-bottom: 15px;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
         }
 
-        .section p {
-            font-size: 1.1em;
+        .section h3 img {
+            width: 28px;
+            margin-left: 10px;
+        }
+
+        .section p, .section ul {
+            font-size: 1.2em;
             line-height: 1.8;
         }
 
-        footer {
-            text-align: center;
-            background-color: #34495e;
-            color: #ecf0f1;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+        ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        table {
             width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+        }
+
+        table th {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        table td {
+            color: #2c3e50;
+        }
+
+        footer {
+            background: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1em;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .developer-info {
+            position: absolute;
+            top: 10px;
+            right: 50px;
+            text-align: left;
+        }
+
+        .developer-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+        }
+
+        .developer-info p {
+            margin: 5px 0 0;
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div>قوانين EMS - Dream Land</div>
-    <img src="https://cdn.discordapp.com/attachments/1310365973215182878/1320182394602524732/dreamland.gif?ex=67810eea&is=677fbd6a&hm=4603611069fc01716dd69311316bab5b2382f2e89f23c32d38e9ad2f44ae19e6&" alt="شعار السيرفر">
+    <img src="https://media.discordapp.net/attachments/1310365973215182878/1320182394602524732/dreamland.gif?ex=6783092a&is=6781b7aa&hm=16b0fa29c662e9afa36986e9392e238cc716a1a31c79352fdd39a0d0933b3e4c&=&width=528&height=528" alt="Dream Land Logo">
+    <div>نظام المال والدرجات وقوانين EMS - Dream Land</div>
 </header>
 
-<div class="sidebar">
-    <a href="home.html">الصفحة الرئيسية</a>
-    <a href="ems_rules.html">قوانين EMS</a>
-    <a href="money_system.html">نظام المكافآت</a>
-    <a href="police_rules.html">قوانين الشرطة</a>
-    <a href="roleplay_rules.html">قوانين الرولبلاي</a>
-</div>
+<div class="container">
+    <div class="sidebar">
+        <a href="home.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home">الصفحة الرئيسية</a>
+        <a href="ems_rules.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/ambulance.png" alt="EMS">قوانين EMS</a>
+        <a href="police_rules.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/police-badge.png" alt="Police">قوانين الشرطة</a>
+        <a href="roleplay_rules.html"><img src="C:\Users\youyo\Music\Ems Rules\book_3251356.png" alt="Roleplay">قوانين الرولبلاي</a>
+    </div>
 
-<div class="content">
-    <div class="section">
-        <h3>الزي الرسمي والظهور المهني</h3>
-        <p>يجب ارتداء الزي الرسمي أثناء أداء العمل. عدم الالتزام قد يؤدي لتحذير.</p>
-    </div>
-    <div class="section">
-        <h3>التسجيل في أوقات العمل</h3>
-        <p>يجب تسجيل الدخول والخروج عند بدء وانتهاء العمل.</p>
-    </div>
-    <div class="section">
-        <h3>الاستجابة للطوارئ</h3>
-        <p>يجب الاستجابة بسرعة للحالات الطارئة لضمان سلامة الجميع.</p>
-    </div>
-    <div class="section">
-        <h3>استخدام سيارات الإسعاف</h3>
-        <p>يحظر استخدام سيارات الإسعاف لأغراض شخصية. يجب أن تكون مستعدة دائمًا لحالات الطوارئ.</p>
-    </div>
-    <div class="section">
-        <h3>الحفاظ على الاحترافية</h3>
-        <p>يجب على الطاقم التعامل مع المرضى باحترام وهدوء. أي تعدٍ على الآخرين سيواجه بعقوبات.</p>
-    </div>
-    <div class="section">
-        <h3>التعاون بين الفريق</h3>
-        <p>يجب على جميع الأعضاء التعاون لضمان استجابة فعالة للحالات. أي تقصير في العمل الجماعي قد يؤدي إلى تحذير.</p>
-    </div>
-    <div class="section">
-        <h3>العقوبات</h3>
-        <p>أي تجاوز للقوانين يؤدي إلى تحذير. في حال التكرار، قد يتم الإيقاف أو الفصل من العمل.</p>
+    <div class="content">
+        <h2>قوانين EMS - Dream Land</h2>
+
+        <div class="section">
+            <h3><img src="C:\Users\youyo\Music\Ems Rules\top_5710309.png" alt="Uniform">الزي الرسمي والظهور المهني</h3>
+            <p>يجب ارتداء الزي الرسمي أثناء أداء العمل. عدم الالتزام قد يؤدي لتحذير.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/000000/clock.png" alt="Clock">التسجيل في أوقات العمل</h3>
+            <p>يجب تسجيل الدخول والخروج عند بدء وانتهاء العمل.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="C:\Users\youyo\Music\Ems Rules\phone_1166647.png" alt="Emergency">الاستجابة للطوارئ</h3>
+            <p>يجب الاستجابة بسرعة للحالات الطارئة لضمان سلامة الجميع.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/000000/ambulance.png" alt="Ambulance">استخدام سيارات الإسعاف</h3>
+            <p>يحظر استخدام سيارات الإسعاف لأغراض شخصية. يجب أن تكون مستعدة دائمًا لحالات الطوارئ.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/000000/handshake.png" alt="Handshake">الحفاظ على الاحترافية</h3>
+            <p>يجب على الطاقم التعامل مع المرضى باحترام وهدوء. أي تعدٍ على الآخرين سيواجه بعقوبات.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="C:\Users\youyo\Music\Ems Rules\secure_15112895.png" alt="Team">التعاون بين الفريق</h3>
+            <p>يجب على جميع الأعضاء التعاون لضمان استجابة فعالة للحالات. أي تقصير في العمل الجماعي قد يؤدي إلى تحذير.</p>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/000000/scales.png" alt="Scales">العقوبات</h3>
+            <p>أي تجاوز للقوانين يؤدي إلى تحذير. في حال التكرار، قد يتم الإيقاف أو الفصل من العمل.</p>
+        </div>
+
+        <h2>نظام المال والدرجات</h2>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/000000/money-bag.png" alt="Rewards">نظام المكافآت</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الرتبة</th>
+                        <th>المكافأة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>المسعف</td>
+                        <td>30000$</td>
+                    </tr>
+                    <tr>
+                        <td>الممرض</td>
+                        <td>40000$</td>
+                    </tr>
+                    <tr>
+                        <td>الطبيب</td>
+                        <td>45000$</td>
+                    </tr>
+                    <tr>
+                        <td>المدير</td>
+                        <td>50000$</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3><img src="https://img.icons8.com/ios-filled/50/000000/up-arrow.png" alt="Promotion">نظام الترقية</h3>
+            <p>يتم ترقية الموظفين بناءً على الأداء العام وعدد الحالات التي يتم التعامل معها بنجاح. العوامل التي تؤثر على الترقية تشمل:</p>
+            <ul>
+                <li>الالتزام بالمواعيد والعمل ضمن الفريق.</li>
+                <li>عدد الحالات الطارئة المنجزة.</li>
+                <li>التصرف بمهنية في المواقف الحرجة.</li>
+                <li>التقييم الدوري من قبل الإدارة.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3><img src="C:\Users\youyo\Music\Ems Rules\tag_1543511.png" alt="Products">أسعار المنتجات الطبية</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>العنصر</th>
+                        <th>السعر</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bandage</td>
+                        <td>50$</td>
+                    </tr>
+                    <tr>
+                        <td>Painkiller</td>
+                        <td>30$</td>
+                    </tr>
+                    <tr>
+                        <td>Antibiotic</td>
+                        <td>80$</td>
+                    </tr>
+                    <tr>
+                        <td>First Aid Kit</td>
+                        <td>120$</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <footer>
-    جميع الحقوق محفوظة &copy; Dream Land 2025
+    © 2025 Dream Land - جميع الحقوق محفوظة
 </footer>
 
 </body>
